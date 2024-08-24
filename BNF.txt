@@ -1,28 +1,37 @@
-BNF Grammar
+<program> ::= <statement> | <statement> <program>
 
-The following is the Backus–Naur form (BNF) grammar for the language:
+<statement> ::= <ifStatement> | <function_definition> | <function_call> | <return_expression> | <expression>
 
-<program> ::= <statement> NEWLINE <program> | EOF
+<function_definition> ::= "defun" <variable> "(" <parameters> ")" "{" <expression> "}"
 
-<statement> ::= "if" "(" <expr> ")" "{" <block> "}" ["else" "{" <block> "}"]
-              | "defun" <variable> "(" <parameters> ")" "{" <block> "}"
-              | <variable> "=" <expr>
-              | <variable> <function_call>
-              | "return" <expr>
-              | <expr>
+<parameters> ::= <identifier> | <identifier> "," <parameters>
 
-<block> ::= <statement> NEWLINE <block> | ""
+<expression> ::= <term> | <expression> <binary_op> <term> | <unary_op> <expression>
 
-<expr> ::= <term> ((PLUS | MINUS | EQEQ | NEQUAL | GT | LT | GTE | LTE | AND | OR) <term>)*
-<term> ::= <factor> ((MUL | DIV | MODULO | AND | OR) <factor>)*
-<factor> ::= (PLUS | MINUS | NOT) <factor>
-           | INTEGER
-           | BOOLEAN
-           | "(" <expr> ")"
-           | <variable>
-           | <function_call>
-           | "if" "(" <expr> ")" "{" <block> "}" ["else" "{" <block> "}"]
-           | "lambda" "(" <parameters> ")" ":" <expr>
-<parameters> ::= <variable> ("," <variable>)*
-<arguments> ::= <expr> ("," <expr>)*
-<function_call> ::= "(" <arguments> ")"
+<term> ::= <factor> | <term> <binary_op> <factor>
+
+<factor> ::= <number> | <boolean> | <variable> | <function_call> | <ifStatement> | <lambda_expression> | "(" <expression> ")"
+
+<function_call> ::= <variable> "(" <arguments> ")"
+
+<return_expression> ::= "return" <expression>
+
+<arguments> ::= <expression> | <expression> "," <arguments>
+
+<lambda_expression> ::= "lambda" <parameters> ":" <expression>
+
+<ifStatement> ::= "if" " ("<expression>")" "{" <expression> "}" "else" "{" <expression> "}"
+
+<binary_op> ::= "+" | "-" | "*" | "/" | "%" | "==" | "!=" | "<=" | ">=" | "<" | ">" | "&&" | "||"
+
+<unary_op> ::= "!"
+
+<number> ::= <digit> | <digit> <number>
+
+<boolean> ::= "true" | "false"
+
+<variable> ::= <letter> | <letter> <variable>
+
+<letter> ::= "a" | "b" | ... | "z" | "A" | "B" | ... | "Z" | "_"
+
+<digit> ::= "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"

@@ -253,7 +253,8 @@ class Parser(object):
 
     def arguments(self):
         """
-        arguments : expr (COMMA expr)*
+        arguments : expr
+                  | arguments COMMA expr
         """
         arg = []
         while self.current_token.type != 'RPAREN':
@@ -264,7 +265,8 @@ class Parser(object):
 
     def parameters(self):
         """
-        parameters : VARIABLE (COMMA VARIABLE)*
+        parameters : factor
+                    | parameters COMMA factor
         """
         parameters = []
         while self.current_token.type != 'RPAREN':
