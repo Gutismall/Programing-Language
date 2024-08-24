@@ -1,0 +1,16 @@
+# Define functions
+defun subtract(a, b){ a - b }
+defun divide(a, b){ a / b }
+defun fibonacci(n){ if (n <= 1){ return n } else{ return fibonacci(n - 1) + fibonacci(n - 2) }}
+
+# Function calls
+subtract(10, 4)      # Expected output: 6
+divide(20, 5)        # Expected output: 4
+fibonacci(6)         # Expected output: 8 (0, 1, 1, 2, 3, 5, 8)
+
+# Lambda function calls
+lambda x: x * 2(15)          # Expected output: 30
+lambda f: f(3)(lambda x: x * x) # Expected output: 9
+
+# Nested function call
+lambda f: f(3)(lambda x: x * 2) # Expected output: 6
