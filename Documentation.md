@@ -131,9 +131,4 @@ The environment is responsible for managing the scope of variables and functions
 
 
  ```
-
-## Conclusion
-
-The custom functional language interpreter project successfully implemented a functional programming language with a focus on immutability and recursion. The development process involved significant challenges, particularly in handling functions and lambdas within a strict functional paradigm. However, through careful design and robust implementation, these challenges were overcome. The final interpreter supports both interactive and program execution modes, providing a reliable platform for exploring functional programming concepts.
-
 ---
