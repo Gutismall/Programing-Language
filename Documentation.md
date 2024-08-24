@@ -87,12 +87,12 @@ The environment is responsible for managing the scope of variables and functions
     # Define functions
     defun subtract(a, b) { a - b }
     defun divide(a, b) { a / b }
-    defun fibonacci(n) { 
-        if (n <= 1) { 
-            return n 
-        } else { 
-            return fibonacci(n - 1) + fibonacci(n - 2) 
-        } 
+    defun fibonacci(n) {
+        if (n <= 1) {
+            return n
+        } else {
+            return fibonacci(n - 1) + fibonacci(n - 2)
+        }
     }
     
     # Define a function to calculate the square of a number
@@ -110,27 +110,26 @@ The environment is responsible for managing the scope of variables and functions
     fibonacci(7)           # Expected output: 13 (0, 1, 1, 2, 3, 5, 8, 13)
     
     # Lambda function calls
-    (lambda x: x + 10)(20)          # Expected output: 30
-    (lambda f: f(4))(lambda x: x * 3) # Expected output: 12
+    lambda x: x + 10(20)          # Expected output: 30
+    lambda f: f(4)(lambda x: x * 3) # Expected output: 12
     
     # Nested function calls
-    (lambda f: f(5))(lambda x: x - 3) # Expected output: 2
+    lambda f: f(5)(lambda x: x - 3) # Expected output: 2
     
     # Boolean and comparison operations
-    True && False  # Expected output: False
-    True || False  # Expected output: True
-    !False         # Expected output: True
+    true && false  # Expected output: false
+    true || false  # Expected output: true
+    !false         # Expected output: true
     
-    3 == 3  # Expected output: True
-    3 != 4  # Expected output: True
-    3 < 4   # Expected output: True
-    4 > 3   # Expected output: True
-    3 <= 3  # Expected output: True
-    4 >= 3  # Expected output: True
+    !(3 == 3) && (3 != 4)  # Expected output: false
+    (3 < 4) || (4 > 3)   # Expected output: true
+    (3 <= 3) != true  # Expected output: false
     
     # If-Else expressions
-    if True: 1 else: 0  # Expected output: 1
-    if False: 1 else: 0 # Expected output: 0
+    if (true){ return 1 }else{ return 0 }  # Expected output: 1
+    if (false){ return 1 }else{ return 0}  # Expected output: 0
+
+
  ```
 
 ## Conclusion
