@@ -1,7 +1,3 @@
-Based on the project requirements provided in the PDF, here is a sample `README.md` file that includes all the necessary documentation for your project.
-
----
-
 # Functional Programming Language Interpreter
 
 ## Overview
