@@ -1,0 +1,28 @@
+BNF Grammar
+
+The following is the Backus–Naur form (BNF) grammar for the language:
+
+<program> ::= <statement> NEWLINE <program> | EOF
+
+<statement> ::= "if" "(" <expr> ")" "{" <block> "}" ["else" "{" <block> "}"]
+              | "defun" <variable> "(" <parameters> ")" "{" <block> "}"
+              | <variable> "=" <expr>
+              | <variable> <function_call>
+              | "return" <expr>
+              | <expr>
+
+<block> ::= <statement> NEWLINE <block> | ""
+
+<expr> ::= <term> ((PLUS | MINUS | EQEQ | NEQUAL | GT | LT | GTE | LTE | AND | OR) <term>)*
+<term> ::= <factor> ((MUL | DIV | MODULO | AND | OR) <factor>)*
+<factor> ::= (PLUS | MINUS | NOT) <factor>
+           | INTEGER
+           | BOOLEAN
+           | "(" <expr> ")"
+           | <variable>
+           | <function_call>
+           | "if" "(" <expr> ")" "{" <block> "}" ["else" "{" <block> "}"]
+           | "lambda" "(" <parameters> ")" ":" <expr>
+<parameters> ::= <variable> ("," <variable>)*
+<arguments> ::= <expr> ("," <expr>)*
+<function_call> ::= "(" <arguments> ")"

@@ -22,7 +22,7 @@ def run_code_from_file(file_path):
 def run_repl():
     while True:
         try:
-            text = input('new_Line> ')
+            text = input('New_line> ')
         except EOFError:
             break
         if not text:
@@ -51,4 +51,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    run_code_from_file('/Users/ariguterman/Documents/School/Second year/Second semester/Programming Languages/Interpreter project/Interpreter/program_test.lambda')
+    #main()
