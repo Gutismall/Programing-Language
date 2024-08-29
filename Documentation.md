@@ -129,6 +129,16 @@ The environment is responsible for managing the scope of variables and functions
     if (true){ return 1 }else{ return 0 }  # Expected output: 1
     if (false){ return 1 }else{ return 0}  # Expected output: 0
 
+    #while loop
+    defun sum_until(n){
+      if (n == 1){
+          return 1
+      }
+      else{
+          return n + sum_until(n - 1)
+      }
+    }
+    sum_until(5)
 
  ```
 ---
